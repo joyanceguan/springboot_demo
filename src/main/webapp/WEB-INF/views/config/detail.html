@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+  <h2>配置</h2>
+  <div>
+     <ul>
+         <li>
+             <span th:text="${config.c_key}"></span>=
+             <span th:text="${config.c_value}"></span>=
+             <span th:text="${config.c_desc}"></span>
+         </li>
+     </ul>
+   </div>
+</body>
+</html>
