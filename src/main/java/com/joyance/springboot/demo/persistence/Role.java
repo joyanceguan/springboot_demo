@@ -1,9 +1,12 @@
 package com.joyance.springboot.demo.persistence;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Role {
+public class Role implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private Integer id;//角色id
 	private String role_name;//角色名称
 	private Date create_time;//创建时间
