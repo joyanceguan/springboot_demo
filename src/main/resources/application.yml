@@ -49,3 +49,7 @@ mybatis:
   # 输出SQL执行语句
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    
+##日志
+logging:
+  config: classpath:logback-spring.xml
