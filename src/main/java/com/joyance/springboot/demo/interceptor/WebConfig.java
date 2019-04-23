@@ -4,6 +4,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+
+import com.joyance.springboot.demo.version.ApiHandlerMapping;
 
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport{
@@ -25,6 +28,14 @@ public class WebConfig extends WebMvcConfigurationSupport{
 //	      registry.addInterceptor(xdcsSpringMvcInterceptor()).addPathPatterns("/**");
 	      registry.addInterceptor(new MyInterceptor1()).addPathPatterns("/config/*").excludePathPatterns("/config/getbyid*");
 	      super.addInterceptors(registry);
+	  }
+	  
+	  @Override
+	  public RequestMappingHandlerMapping requestMappingHandlerMapping() {
+	       ApiHandlerMapping handlerMapping = new ApiHandlerMapping();
+	       handlerMapping.setOrder(0);
+	       handlerMapping.setInterceptors(getInterceptors());
+	       return handlerMapping;
 	  }
 	  
 }
